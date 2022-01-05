@@ -5,8 +5,8 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
 #your API KEY from IFTTT
-IFTTTAPIKEY = "p9yWbHsgbjWO0Y4HRYlUKpBHYSPsQXyEgcknGtlkCYB"
-CoinmarketcapAPIKEY = "ca70261a-b50b-4f99-abfb-8cfe7ee9e630"
+IFTTTAPIKEY = "your key
+CoinmarketcapAPIKEY = "your key"
 
 
 def CryptoPriceCheck(Ammount,StartingCur,ConvertingCur):

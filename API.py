@@ -5,12 +5,12 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
 #your API KEY from IFTTT
-IFTTTAPIKEY = "your key
-CoinmarketcapAPIKEY = "your key"
+IFTTTAPIKEY = "your key"  #IFFT API Key
+CoinmarketcapAPIKEY = "your key" #Coinmarketcap API Key
 
 
 def CryptoPriceCheck(Ammount,StartingCur,ConvertingCur):
-  url = 'https://pro-api.coinmarketcap.com/v1/tools/price-conversion'
+  url = 'https://pro-api.coinmarketcap.com/v1/tools/price-conversion' #Rest API Endpoint
   parameters = {
     'amount': Ammount,
    'symbol': ConvertingCur,
@@ -30,13 +30,13 @@ def CryptoPriceCheck(Ammount,StartingCur,ConvertingCur):
   except (ConnectionError, Timeout, TooManyRedirects) as e: #Account for if API throws error.
     print(e)
 def LightsON(wtime):
-  requests.post("https://maker.ifttt.com/trigger/lights_on/with/key/" + IFTTTAPIKEY)
+  requests.post("https://maker.ifttt.com/trigger/lights_on/with/key/" + IFTTTAPIKEY) #Turn Lights on (Color is whatever color was set to before lights lost power)
   time.sleep(wtime)
 def LightsPurple(wtime):
-  requests.post("https://maker.ifttt.com/trigger/lights_purple/with/key/" + IFTTTAPIKEY)
+  requests.post("https://maker.ifttt.com/trigger/lights_purple/with/key/" + IFTTTAPIKEY) #Turn Lights Purple
   time.sleep(wtime)
 def SendNotification(wtime):
-  requests.post("https://maker.ifttt.com/trigger/Notification_Send/with/key/" + IFTTTAPIKEY)
+  requests.post("https://maker.ifttt.com/trigger/Notification_Send/with/key/" + IFTTTAPIKEY) #Send Mobile Notification (For Testing)
   time.sleep(wtime)
 
 #Runtime Loop
@@ -44,9 +44,9 @@ while True:
   Userstartingcur = input("Please enter your starting currency:")
   UserAmmount = input("Please enter the ammount of this currency you would like to convert:")
   UserConvertingCurrency = input("Please enter the  currency you would like to convert to:")
-  CryptoPriceCheck(UserAmmount,Userstartingcur,UserConvertingCurrency)
+  CryptoPriceCheck(UserAmmount,Userstartingcur,UserConvertingCurrency) #Grab Price
   time.sleep(1)
-  input("Press Enter to Restart...\n")
+  input("Press Enter to Restart...\n") #restarts program
 
 
 
